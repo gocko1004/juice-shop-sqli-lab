@@ -1,9 +1,9 @@
-# DevSecAI Juice Shop SQL Injection Demo
+# Juice Shop SQL Injection Lab
 
 This project provides a safe lab for learning and demonstrating SQL injection using OWASP Juice Shop.
 
 Repository link:  
-https://github.com/gocko1004/devsecai-juice-shop-sql-injection-demo
+https://github.com/gocko1004/juice-shop-sqli-lab
 
 ## Overview
 
@@ -25,8 +25,8 @@ You will learn:
 
 Open a terminal (PowerShell, CMD, or Linux/Mac shell) and run:
 
-git clone https://github.com/gocko1004/devsecai-juice-shop-sql-injection-demo.git  
-cd devsecai-juice-shop-sql-injection-demo  
+git clone https://github.com/gocko1004/juice-shop-sqli-lab.git  
+cd juice-shop-sqli-lab  
 docker compose up  
 
 When Docker finishes pulling and starting the container, open:
@@ -37,7 +37,7 @@ You will see the Juice Shop home page.
 
 ## SQL Injection Demos
 
-### Demo 1 – Login Bypass
+### Demo 1: Login Bypass
 
 1. Go to Account → Login.  
 2. In the Email field, enter: `' OR 1=1 --`  
@@ -46,7 +46,7 @@ You will see the Juice Shop home page.
 
 Result: You are logged in without a real account. Juice Shop shows you as logged in even though the credentials were fake.
 
-### Demo 2 – User Data Extraction
+### Demo 2: User Data Extraction
 
 1. Go to Account → Login.  
 2. In the Email field, enter: `' UNION SELECT id, email, password, 1, 1 FROM users --`  
@@ -77,17 +77,17 @@ This project is for educational use only. Do not use these techniques on systems
 ## Credits
 
 - OWASP Juice Shop for the vulnerable application.  
-- Demo setup prepared by Goce Petrov (DevSecAI).
+- Personal learning lab by Goce Petrov. More: https://www.gocepetrov.com/security-and-it
 
 ## SQL Injection Cheat Sheet
 
 This section gives you two ready-to-use payloads and a reminder of why they work. Use it as a quick reference during workshops.
 
-Payload 1 – Login Bypass: `' OR 1=1 --`  
+Payload 1, login bypass: `' OR 1=1 --`  
 - Works on the login form.  
 - Logs you in without a real account.  
 
-Payload 2 – User Data Extraction: `' UNION SELECT id, email, password, 1, 1 FROM users --`  
+Payload 2, user data extraction: `' UNION SELECT id, email, password, 1, 1 FROM users --`  
 - Works on the login form.  
 - Attempts to leak user IDs, emails, and password hashes.  
 

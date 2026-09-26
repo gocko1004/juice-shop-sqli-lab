@@ -1,7 +1,7 @@
 services:
   juice-shop:
     image: bkimminich/juice-shop:latest
-    container_name: devsecai-juice-shop
+    container_name: juice-shop-sqli-lab
     ports:
       - "${PORT:-3000}:3000"
     environment:
